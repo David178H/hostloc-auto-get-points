@@ -9,7 +9,7 @@ import re
 def randomly_gen_uspace_url() -> list:
     url_list = []
     # 访问小黑屋用户空间不会获得积分、生成的随机数可能会重复，这里多生成两个链接用作冗余
-    for i in range(12):
+    for i in range(15):
         uid = random.randint(10000, 45000)
         url = "https://www.hostloc.com/space-uid-{}.html".format(str(uid))
         url_list.append(url)
@@ -56,7 +56,7 @@ def get_points(s: req_Session, number_c: int):
             try:
                 s.get(url)
                 print("第", i + 1, "个用户空间链接访问成功")
-                time.sleep(4)  # 每访问一个链接后休眠4秒，以避免触发论坛的防cc机制
+                time.sleep(28)  # 每访问一个链接后休眠4秒，以避免触发论坛的防cc机制
             except Exception as e:
                 print("链接访问异常：" + str(e))
             continue
